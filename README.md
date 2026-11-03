@@ -12,6 +12,13 @@ Plain HTML/CSS/JavaScript: no build step, no dependencies.
 
 Keyboard: `H` hit, `S` stand, `D` double, `P` split, `Enter` deal.
 
+## Sign in with Google
+Players sign in with Google through Supabase Auth (`auth.js`) before they can play. Once signed in, the header greets them by first name and shows their Google profile picture.
+
+Supabase setup (Dashboard → Authentication):
+- **Sign In / Providers → Google**: enabled, with the Google OAuth client ID and secret. In Google Cloud, the OAuth client's authorized redirect URI is `https://yptcidtlziiumivuzoei.supabase.co/auth/v1/callback`.
+- **URL Configuration**: set **Site URL** to the Netlify URL and add it to **Redirect URLs** (plus `http://localhost:8000` for local testing). Otherwise Supabase sends players back to the wrong page after Google sign-in.
+
 ## How it uses the API
 | Action | Endpoint |
 | --- | --- |
