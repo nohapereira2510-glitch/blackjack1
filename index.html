@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blackjack</title>
+  <meta name="description" content="Play Blackjack in your browser, powered by the Deck of Cards API." />
+  <link rel="icon" href="https://deckofcardsapi.com/static/img/AS.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Blackjack</h1>
+    <div class="stats">
+      <div class="stat"><span class="label">Bankroll</span><span id="bankroll" class="value">$1,000</span></div>
+      <div class="stat"><span class="label">Bet</span><span id="bet" class="value">$0</span></div>
+      <div class="stat"><span class="label">Shoe</span><span id="shoe" class="value">–</span></div>
+    </div>
+  </header>
+
+  <main class="table">
+    <section class="area dealer-area">
+      <div class="area-head">
+        <h2>Dealer</h2>
+        <span id="dealer-total" class="total" hidden></span>
+      </div>
+      <div id="dealer-cards" class="cards"></div>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite">Place your bet to start.</div>
+
+    <section class="area player-area">
+      <div id="player-hands" class="hands"></div>
+      <div class="area-head"><h2>You</h2></div>
+    </section>
+  </main>
+
+  <footer class="controls">
+    <div id="betting-controls" class="control-row">
+      <div class="chips">
+        <button class="chip chip-5" data-chip="5">5</button>
+        <button class="chip chip-25" data-chip="25">25</button>
+        <button class="chip chip-100" data-chip="100">100</button>
+        <button class="chip chip-500" data-chip="500">500</button>
+      </div>
+      <div class="buttons">
+        <button id="clear-btn" class="btn secondary">Clear</button>
+        <button id="rebet-btn" class="btn secondary">Rebet</button>
+        <button id="deal-btn" class="btn primary">Deal</button>
+      </div>
+    </div>
+
+    <div id="play-controls" class="control-row" hidden>
+      <div class="buttons">
+        <button id="hit-btn" class="btn primary">Hit</button>
+        <button id="stand-btn" class="btn primary">Stand</button>
+        <button id="double-btn" class="btn secondary">Double</button>
+        <button id="split-btn" class="btn secondary">Split</button>
+      </div>
+    </div>
+
+    <div id="broke-controls" class="control-row" hidden>
+      <div class="buttons">
+        <button id="reset-btn" class="btn primary">Out of chips: start over with $1,000</button>
+      </div>
+    </div>
+
+    <div id="retry-controls" class="control-row" hidden>
+      <div class="buttons">
+        <button id="retry-btn" class="btn primary">Retry dealer's turn</button>
+      </div>
+    </div>
+
+    <p class="rules">6-deck shoe · Blackjack pays 3:2 · Dealer stands on all 17s · Double on any two cards · Split once</p>
+    <p class="credit">Cards dealt by <a href="https://deckofcardsapi.com/" target="_blank" rel="noopener">Deck of Cards API</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
